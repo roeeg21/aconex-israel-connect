@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import megatechLogo from "@/assets/megatech-logo.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -16,8 +17,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <a href="#home" className="font-display text-xl font-bold text-foreground tracking-tight">
-          <span className="text-accent">Aconex</span> Israel
+        <a href="#home" className="flex items-center gap-2 font-display text-xl font-bold text-foreground tracking-tight">
+          <img src={megatechLogo} alt="Megatech" className="h-7" />
+          <span><span className="text-accent">Aconex</span> Israel</span>
         </a>
 
         {/* Desktop */}
