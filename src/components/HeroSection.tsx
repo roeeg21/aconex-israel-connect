@@ -34,7 +34,7 @@ const HeroSection = () => (
               Request a Demo <ArrowRight size={18} className="ml-2" />
             </a>
           </Button>
-          <Button asChild variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-base px-8">
+          <Button asChild variant="outline" size="lg" className="border-primary-foreground/60 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20 font-semibold text-base px-8 backdrop-blur-sm">
             <a href="#modules">Explore Modules</a>
           </Button>
         </div>
