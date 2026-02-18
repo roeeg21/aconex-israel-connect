@@ -1,3 +1,5 @@
+import megatechLogo from "@/assets/megatech-logo.png";
+
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground">
     <div className="container mx-auto px-4 py-12">
@@ -27,7 +29,11 @@ const Footer = () => (
           </ul>
         </div>
       </div>
-      <div className="border-t border-primary-foreground/10 mt-10 pt-6 text-center text-xs text-primary-foreground/40">
+      <div className="border-t border-primary-foreground/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-xs text-primary-foreground/40">
+        <span>Submitted by Megatech Advanced Technologies Ltd.</span>
+        <img src={megatechLogo} alt="Megatech Advanced Technologies" className="h-6 brightness-0 invert opacity-60" />
+      </div>
+      <div className="text-center text-xs text-primary-foreground/30 mt-3">
         © {new Date().getFullYear()} Aconex Israel. All rights reserved. Oracle and Aconex are trademarks of Oracle Corporation.
       </div>
     </div>
