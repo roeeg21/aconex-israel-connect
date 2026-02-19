@@ -90,7 +90,9 @@ export const translations = {
       },
     },
     footer: {
-      tagline: "Enabling Israeli industries to design smarter, produce faster, and compete stronger.",
+      tagline: "Enabling Israeli industries to design smarter, produce faster, and compete stronger.
+      Email: Menachem_getz@megatec.co.il /n
+      Tel: +9720544530230",
       quickLinks: "Quick Links",
       resources: "Resources",
       submittedBy: "Submitted by Megatech Advanced Technologies Ltd.",
