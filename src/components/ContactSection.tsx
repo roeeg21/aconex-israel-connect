@@ -4,10 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const freeMailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com", "icloud.com", "mail.com", "protonmail.com", "yandex.com"];
 
 const ContactSection = () => {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [form, setForm] = useState({
     organization: "",
@@ -29,20 +31,19 @@ const ContactSection = () => {
     const domain = form.email.split("@")[1]?.toLowerCase();
     if (!domain || freeMailDomains.includes(domain)) {
       toast({
-        title: "Corporate email required",
-        description: "Please use your organization email address (not Gmail, Yahoo, etc.).",
+        title: t.contact.toasts.corpRequired,
+        description: t.contact.toasts.corpDesc,
         variant: "destructive",
       });
       return;
     }
 
     setSubmitting(true);
-    // Simulate submission
     setTimeout(() => {
       setSubmitting(false);
       toast({
-        title: "Request received!",
-        description: "We'll verify your email and get back to you shortly.",
+        title: t.contact.toasts.success,
+        description: t.contact.toasts.successDesc,
       });
       setForm({ organization: "", name: "", email: "", phone: "", role: "", projectSize: "" });
     }, 1200);
@@ -52,72 +53,57 @@ const ContactSection = () => {
     <section id="contact" className="section-padding">
       <div className="container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left copy */}
           <div className="space-y-5">
-            <p className="text-sm font-semibold uppercase tracking-wider text-accent">Get Started</p>
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground leading-tight">
-              Request a Personalized Demo
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Fill in your details and our team will schedule a demo tailored to your project's needs. 
-              We'll send a verification email to confirm your organization.
-            </p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-accent">{t.contact.label}</p>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground leading-tight">{t.contact.title}</h2>
+            <p className="text-muted-foreground leading-relaxed">{t.contact.desc}</p>
             <div className="pt-2 space-y-3 text-sm text-muted-foreground">
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                <span>Corporate email required for verification</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                <span>Your data is used solely for contact purposes</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="mt-0.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                <span>Compliant with Israeli privacy law & GDPR</span>
-              </div>
+              {t.contact.bullets.map((bullet, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <span className="mt-0.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                  <span>{bullet}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="bg-card rounded-xl p-6 sm:p-8 card-elevated border border-border space-y-5">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <Label htmlFor="organization">Organization</Label>
-                <Input id="organization" name="organization" required value={form.organization} onChange={handleChange} placeholder="Company name" />
+                <Label htmlFor="organization">{t.contact.form.organization}</Label>
+                <Input id="organization" name="organization" required value={form.organization} onChange={handleChange} placeholder={t.contact.form.placeholders.organization} />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="name">Full Name</Label>
-                <Input id="name" name="name" required value={form.name} onChange={handleChange} placeholder="Your name" />
-              </div>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <Label htmlFor="email">Corporate Email</Label>
-                <Input id="email" name="email" type="email" required value={form.email} onChange={handleChange} placeholder="you@company.com" />
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+972..." />
+                <Label htmlFor="name">{t.contact.form.name}</Label>
+                <Input id="name" name="name" required value={form.name} onChange={handleChange} placeholder={t.contact.form.placeholders.name} />
               </div>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <Label htmlFor="role">Role</Label>
-                <Input id="role" name="role" value={form.role} onChange={handleChange} placeholder="Project Manager, Architect…" />
+                <Label htmlFor="email">{t.contact.form.email}</Label>
+                <Input id="email" name="email" type="email" required value={form.email} onChange={handleChange} placeholder={t.contact.form.placeholders.email} />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="projectSize">Project Size</Label>
-                <Input id="projectSize" name="projectSize" value={form.projectSize} onChange={handleChange} placeholder="e.g. $10M+" />
+                <Label htmlFor="phone">{t.contact.form.phone}</Label>
+                <Input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder={t.contact.form.placeholders.phone} />
+              </div>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <Label htmlFor="role">{t.contact.form.role}</Label>
+                <Input id="role" name="role" value={form.role} onChange={handleChange} placeholder={t.contact.form.placeholders.role} />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="projectSize">{t.contact.form.projectSize}</Label>
+                <Input id="projectSize" name="projectSize" value={form.projectSize} onChange={handleChange} placeholder={t.contact.form.placeholders.projectSize} />
               </div>
             </div>
             <Button type="submit" disabled={submitting} className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
-              {submitting ? "Sending…" : (
-                <>Submit Request <Send size={16} className="ml-2" /></>
+              {submitting ? t.contact.form.sending : (
+                <>{t.contact.form.submit} <Send size={16} className="ms-2" /></>
               )}
             </Button>
-            <p className="text-xs text-muted-foreground text-center">
-              By submitting, you agree to our privacy policy. We'll verify your email before processing your request.
-            </p>
+            <p className="text-xs text-muted-foreground text-center">{t.contact.form.privacy}</p>
           </form>
         </div>
       </div>
