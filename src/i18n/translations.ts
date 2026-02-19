@@ -90,11 +90,10 @@ export const translations = {
       },
     },
     footer: {
-      tagline: "Enabling Israeli industries to design smarter, produce faster, and compete stronger.",
-      company: "Megatec M.A. Advanced Technologies Ltd.",
-      address: "2 Yohanan HaSandlar Street, Haifa, Israel",
-      email: "Menachem_getz@megatec.co.il",
-      phone: "+972-54-453-0230",
+      tagline: "Enabling Israeli industries to design smarter, produce faster, and compete stronger."
+      /n address: 2 Yohanan HaSandlar Street, Haifa, Israel
+      /n email: Menachem_getz@megatec.co.il
+      /n phone: +972-54-453-0230",
       quickLinks: "Quick Links",
       resources: "Resources",
       submittedBy: "Submitted by Megatec M.A. Advanced Technologies Ltd.",
@@ -176,7 +175,7 @@ export const translations = {
       cta2: "דברו עם מומחה",
     },
     differentiators: {
-      label: "למה מגה-טק",
+      label: "למה מגטק",
       title: "השותף הטכנולוגי ההנדסי המוביל שלכם",
       items: [
         { title: "תגובה מהירה", desc: "זמני תגובה מהירים המבטיחים זמן השבתה מינימלי לתהליכי ההנדסה שלכם." },
@@ -249,13 +248,13 @@ export const translations = {
     },
     footer: {
       tagline: "מאפשרים לתעשיות הישראליות לתכנן בחכמה, לייצר מהר יותר ולהתחרות בחוזקה.",
-      company: "מגה-טק מ.א. טכנולוגיות מתקדמות בע\"מ",
+      company: "מגטק מ.א. טכנולוגיות מתקדמות בע\"מ",
       address: "יוחנן הסנדלר 2, חיפה, ישראל",
       email: "Menachem_getz@megatec.co.il",
       phone: "054-453-0230",
       quickLinks: "קישורים מהירים",
       resources: "משאבים",
-      submittedBy: "הוגש על ידי מגה-טק מ.א. טכנולוגיות מתקדמות בע\"מ",
+      submittedBy: "הוגש על ידי מגטק מ.א. טכנולוגיות מתקדמות בע\"מ",
       rights: "כל הזכויות שמורות.",
     },
     about: {
