@@ -90,7 +90,7 @@ export const translations = {
       },
     },
     footer: {
-      tagline: "Enabling Israeli industries to design smarter, produce faster, and compete stronger.\nEmail: Menachem_getz@megatec.co.il\nTel: +9720544530230",
+      tagline: "Enabling Israeli industries to design smarter, produce faster, and compete stronger.\n  Email: Menachem_getz@megatec.co.il\n  Tel: +9720544530230ֿֿֿֿ\n  Address: 2 Yohanan Sandlar, Haifa, isreal",
       quickLinks: "Quick Links",
       resources: "Resources",
       submittedBy: "Submitted by Megatech Advanced Technologies Ltd.",
