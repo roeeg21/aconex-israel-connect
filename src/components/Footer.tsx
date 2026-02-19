@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-3 gap-8">
           <div>
             <p className="font-display font-bold text-lg mb-2">
-              <span className="text-accent">Megatec</span>
+              <span className="text-accent"></span>
             </p>
             <p className="text-sm text-primary-foreground/60 leading-relaxed">
               {t.footer.tagline}
@@ -29,7 +29,7 @@ const Footer = () => {
           <div>
             <p className="font-semibold text-sm mb-3 uppercase tracking-wider text-primary-foreground/80">{t.footer.resources}</p>
             <ul className="space-y-2 text-sm text-primary-foreground/60">
-              <li><a href="https://docs.oracle.com/en/cloud/paas/aconex/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Oracle Aconex Docs</a></li>
+              <li><a href="https://www.oracle.com/construction-engineering/aconex/#rc30p10" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Oracle Aconex Docs</a></li>
             </ul>
           </div>
         </div>
