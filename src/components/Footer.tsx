@@ -53,15 +53,15 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-primary-foreground/60">
               <li className="flex items-center gap-2">
                 <Mail size={14} className="text-accent shrink-0" />
-                <a href="mailto:info@megatec.co.il" className="hover:text-accent transition-colors">info@megatec.co.il</a>
+                <a href="mailto:Menachem_getz@megatec.co.il" className="hover:text-accent transition-colors">Menachem_getz@megatec.co.il</a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={14} className="text-accent shrink-0" />
-                <span>+972-3-XXX-XXXX</span>
+                <span>+972-54-453-0230</span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin size={14} className="text-accent shrink-0 mt-0.5" />
-                <span>Israel</span>
+                <span>2 Yohanan HaSandlar Street, Haifa, Israel</span>
               </li>
             </ul>
           </div>
