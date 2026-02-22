@@ -14,16 +14,121 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admin_settings: {
+        Row: {
+          id: string
+          last_updated: string
+          notification_email_primary: string | null
+          notification_email_secondary: string | null
+          notifications_enabled: boolean
+        }
+        Insert: {
+          id?: string
+          last_updated?: string
+          notification_email_primary?: string | null
+          notification_email_secondary?: string | null
+          notifications_enabled?: boolean
+        }
+        Update: {
+          id?: string
+          last_updated?: string
+          notification_email_primary?: string | null
+          notification_email_secondary?: string | null
+          notifications_enabled?: boolean
+        }
+        Relationships: []
+      }
+      demo_requests: {
+        Row: {
+          admin_notes: string | null
+          email: string
+          email_verified: boolean
+          full_name: string
+          id: string
+          ip_address: string | null
+          notes: string | null
+          organization: string
+          phone: string | null
+          project_size: string | null
+          role: string | null
+          status: Database["public"]["Enums"]["demo_request_status"]
+          submission_date: string
+          user_agent: string | null
+          verification_date: string | null
+          verification_token: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          email: string
+          email_verified?: boolean
+          full_name: string
+          id?: string
+          ip_address?: string | null
+          notes?: string | null
+          organization: string
+          phone?: string | null
+          project_size?: string | null
+          role?: string | null
+          status?: Database["public"]["Enums"]["demo_request_status"]
+          submission_date?: string
+          user_agent?: string | null
+          verification_date?: string | null
+          verification_token?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          email?: string
+          email_verified?: boolean
+          full_name?: string
+          id?: string
+          ip_address?: string | null
+          notes?: string | null
+          organization?: string
+          phone?: string | null
+          project_size?: string | null
+          role?: string | null
+          status?: Database["public"]["Enums"]["demo_request_status"]
+          submission_date?: string
+          user_agent?: string | null
+          verification_date?: string | null
+          verification_token?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
+      demo_request_status: "new" | "in_progress" | "contacted" | "closed"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +255,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+      demo_request_status: ["new", "in_progress", "contacted", "closed"],
+    },
   },
 } as const
