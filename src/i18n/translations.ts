@@ -115,19 +115,14 @@ export const translations = {
       title: "Comprehensive Engineering Software Portfolio",
       categories: [
         {
-          title: "CAD Software Solutions",
-          desc: "Industry-leading computer-aided design tools for mechanical, electrical, and electronics engineering. We distribute and support the full range of professional CAD platforms.",
-          features: ["2D/3D Mechanical Design", "PCB & Electronics Design", "Electrical CAD", "Simulation & Analysis"],
-        },
-        {
-          title: "Engineering Software Distribution",
-          desc: "As an authorized distributor, we provide licensed engineering software from leading global vendors with full local support and training.",
-          features: ["Licensed Software", "Volume Licensing", "Upgrade Management", "Vendor Relations"],
-        },
-        {
           title: "Project Collaboration (Aconex)",
           desc: "Oracle Aconex — the neutral, secure cloud platform for construction and engineering project collaboration with full data ownership and immutable audit trails.",
           features: ["Document Management", "Workflow Automation", "BIM Coordination", "Field Operations"],
+        },
+        {
+          title: "Project Scheduling (Primavera)",
+          desc: "Unified project scheduling. Coordinate your office and field teams with one unified CPM system and task schedule, optimize resources, and manage risk across all your projects, big or small.",
+          features: ["Critical Path Management", "Resource Optimization", "Risk Management", "Field & Office Coordination"],
         },
         {
           title: "Process Optimization",
@@ -269,19 +264,14 @@ export const translations = {
       title: "תיק פתרונות תוכנת הנדסה מקיף",
       categories: [
         {
-          title: "פתרונות תוכנת CAD",
-          desc: "כלי עיצוב בעזרת מחשב מובילים בתעשייה להנדסה מכנית, חשמלית ואלקטרונית. אנו מפיצים ותומכים במגוון המלא של פלטפורמות CAD מקצועיות.",
-          features: ["עיצוב מכני 2D/3D", "עיצוב PCB ואלקטרוניקה", "CAD חשמלי", "סימולציה וניתוח"],
-        },
-        {
-          title: "הפצת תוכנות הנדסה",
-          desc: "כמפיץ מורשה, אנו מספקים תוכנת הנדסה ברישיון מספקים גלובליים מובילים עם תמיכה והדרכה מקומית מלאה.",
-          features: ["תוכנה ברישיון", "רישוי כמותי", "ניהול שדרוגים", "יחסי ספקים"],
-        },
-        {
           title: "שיתוף פעולה בפרויקטים (Aconex)",
           desc: "Oracle Aconex — הפלטפורמה הניטרלית והמאובטחת בענן לשיתוף פעולה בפרויקטי בנייה והנדסה עם בעלות מלאה על נתונים ומסלול ביקורת בלתי ניתן לשינוי.",
           features: ["ניהול מסמכים", "אוטומציית תהליכים", "תיאום BIM", "פעולות שטח"],
+        },
+        {
+          title: "תכנון פרויקטים (Primavera)",
+          desc: "תכנון פרויקטים איחוד. תאמו את צוותי המשרד והשטח שלכם עם מערכת CPM יחידה ולוח זמנים, אופטימיזציה של משאבים וניהול סיכונים על פני כל הפרויקטים שלכם, גדולים או קטנים.",
+          features: ["ניהול נתיב קריטי", "אופטימיזציה של משאבים", "ניהול סיכונים", "תיאום שטח ומשרד"],
         },
         {
           title: "אופטימיזציית תהליכים",
