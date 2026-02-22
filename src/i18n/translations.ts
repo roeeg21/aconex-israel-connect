@@ -90,7 +90,7 @@ export const translations = {
       },
     },
     footer: {
-      tagline: "Enabling Israeli industries to design smarter, produce faster, and compete stronger.\n2 Yohanan HaSandlar Street, Haifa, Israel\nEmail: Menachem_getz@megatec.co.il\nPhone: +972-54-453-0230",
+      tagline: "Enabling Israeli industries to design smarter, produce faster, and compete stronger.",
       quickLinks: "Quick Links",
       resources: "Resources",
       submittedBy: "Submitted by Megatec M.A. Advanced Technologies Ltd.",
@@ -244,7 +244,7 @@ export const translations = {
       },
     },
     footer: {
-      tagline: "מאפשרים לתעשיות הישראליות לתכנן בחכמה, לייצר מהר יותר ולהתחרות בחוזקה.\nיוחנן הסנדלר 2, חיפה, ישראל\nדוא\"ל: Menachem_getz@megatec.co.il\nטלפון: 054-453-0230",
+      tagline: "מאפשרים לתעשיות הישראליות לתכנן בחכמה, לייצר מהר יותר ולהתחרות בחוזקה.",
       quickLinks: "קישורים מהירים",
       resources: "משאבים",
       submittedBy: "הוגש על ידי מגטק מ.א. טכנולוגיות מתקדמות בע\"מ",
