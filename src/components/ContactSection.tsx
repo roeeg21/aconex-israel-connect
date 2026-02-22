@@ -2,11 +2,17 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
 
-const freeMailDomains = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com", "icloud.com", "mail.com", "protonmail.com", "yandex.com"];
+const freeMailDomains = [
+  "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com",
+  "icloud.com", "mail.com", "protonmail.com", "yandex.com", "live.com",
+  "msn.com", "zoho.com", "gmx.com", "fastmail.com",
+];
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -18,16 +24,18 @@ const ContactSection = () => {
     phone: "",
     role: "",
     projectSize: "",
+    notes: "",
   });
   const [submitting, setSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Client-side corporate email validation
     const domain = form.email.split("@")[1]?.toLowerCase();
     if (!domain || freeMailDomains.includes(domain)) {
       toast({
@@ -39,14 +47,46 @@ const ContactSection = () => {
     }
 
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("submit-demo-request", {
+        body: {
+          fullName: form.name,
+          organization: form.organization,
+          email: form.email,
+          phone: form.phone,
+          role: form.role,
+          projectSize: form.projectSize,
+          notes: form.notes,
+        },
+      });
+
+      if (error) throw error;
+
+      if (data?.error) {
+        toast({
+          title: "Error",
+          description: data.error,
+          variant: "destructive",
+        });
+        return;
+      }
+
       toast({
         title: t.contact.toasts.success,
         description: t.contact.toasts.successDesc,
       });
-      setForm({ organization: "", name: "", email: "", phone: "", role: "", projectSize: "" });
-    }, 1200);
+      setForm({ organization: "", name: "", email: "", phone: "", role: "", projectSize: "", notes: "" });
+    } catch (err) {
+      console.error("Submit error:", err);
+      toast({
+        title: "Error",
+        description: "Failed to submit request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -97,6 +137,10 @@ const ContactSection = () => {
                 <Label htmlFor="projectSize">{t.contact.form.projectSize}</Label>
                 <Input id="projectSize" name="projectSize" value={form.projectSize} onChange={handleChange} placeholder={t.contact.form.placeholders.projectSize} />
               </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="notes">{t.contact.form.notes}</Label>
+              <Textarea id="notes" name="notes" value={form.notes} onChange={handleChange} placeholder={t.contact.form.placeholders.notes} rows={3} />
             </div>
             <Button type="submit" disabled={submitting} className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
               {submitting ? t.contact.form.sending : (
