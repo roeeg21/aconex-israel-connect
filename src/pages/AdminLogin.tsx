@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import ScrollReveal from "@/components/ScrollReveal";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Lock, UserPlus } from "lucide-react";
@@ -106,7 +107,7 @@ const AdminLogin = () => {
     <>
       <meta name="robots" content="noindex, nofollow" />
       <div className="min-h-screen flex items-center justify-center bg-background p-4">
-        <div className="w-full max-w-sm">
+        <ScrollReveal className="w-full max-w-sm">
           <div className="bg-card rounded-xl p-8 border border-border shadow-lg space-y-6">
             <div className="text-center space-y-2">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
@@ -163,7 +164,7 @@ const AdminLogin = () => {
               </button>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </>
   );

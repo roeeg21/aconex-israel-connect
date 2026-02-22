@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import megatechLogo from "@/assets/megatech-logo.png";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Printer } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
+import { companyContact } from "@/config/companyContact";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -11,15 +13,15 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-14">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
-          <div className="space-y-4">
+          <ScrollReveal delay={0} className="space-y-4">
             <img src={megatechLogo} alt="Megatec" className="h-8 brightness-0 invert opacity-80" />
             <p className="text-sm text-primary-foreground/60 leading-relaxed max-w-xs">
               {t.footer.tagline}
             </p>
-          </div>
+          </ScrollReveal>
 
           {/* Quick Links */}
-          <div>
+          <ScrollReveal delay={90}>
             <p className="font-semibold text-sm mb-4 uppercase tracking-wider text-primary-foreground/80">
               {t.footer.quickLinks}
             </p>
@@ -29,10 +31,10 @@ const Footer = () => {
               <li><Link to="/support" className="hover:text-accent transition-colors">{t.nav.support}</Link></li>
               <li><a href="/#contact" className="hover:text-accent transition-colors">{t.nav.contact}</a></li>
             </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Resources */}
-          <div>
+          <ScrollReveal delay={180}>
             <p className="font-semibold text-sm mb-4 uppercase tracking-wider text-primary-foreground/80">
               {t.footer.resources}
             </p>
@@ -43,35 +45,49 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Contact Info */}
-          <div>
+          <ScrollReveal delay={270}>
             <p className="font-semibold text-sm mb-4 uppercase tracking-wider text-primary-foreground/80">
               {t.nav.contact}
             </p>
             <ul className="space-y-3 text-sm text-primary-foreground/60">
               <li className="flex items-center gap-2">
                 <Mail size={14} className="text-accent shrink-0" />
-                <a href="mailto:Menachem_getz@megatec.co.il" className="hover:text-accent transition-colors">Menachem_getz@megatec.co.il</a>
+                <a href={`mailto:${companyContact.email}`} className="hover:text-accent transition-colors">{companyContact.email}</a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={14} className="text-accent shrink-0" />
-                <span>+972-54-453-0230</span>
+                <a href={companyContact.phoneHref} className="hover:text-accent transition-colors">
+                  {companyContact.phoneDisplay}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Printer size={14} className="text-accent shrink-0" />
+                <a href={companyContact.faxHref} className="hover:text-accent transition-colors">
+                  {companyContact.faxDisplay}
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin size={14} className="text-accent shrink-0 mt-0.5" />
-                <span>2 Yohanan HaSandlar Street, Haifa, Israel</span>
+                <span>
+                  {companyContact.addressLine1}
+                  <br />
+                  {companyContact.addressLine2}
+                </span>
               </li>
             </ul>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-primary-foreground/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
-          <span>© {new Date().getFullYear()} Megatec M.A. Advanced Technologies Ltd. {t.footer.rights}</span>
-          <span>{t.footer.submittedBy}</span>
-        </div>
+        <ScrollReveal delay={340}>
+          <div className="border-t border-primary-foreground/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
+            <span>© {new Date().getFullYear()} Megatec M.A. Advanced Technologies Ltd. {t.footer.rights}</span>
+            <span>{t.footer.submittedBy}</span>
+          </div>
+        </ScrollReveal>
       </div>
     </footer>
   );

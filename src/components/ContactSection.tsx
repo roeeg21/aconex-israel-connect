@@ -4,9 +4,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Send } from "lucide-react";
+import { Send, Mail, Phone, MapPin, Printer } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
+import { companyContact } from "@/config/companyContact";
 
 const freeMailDomains = [
   "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com",
@@ -104,6 +105,38 @@ const ContactSection = () => {
                   <span>{bullet}</span>
                 </div>
               ))}
+            </div>
+
+            <div className="rounded-xl border border-border bg-card/60 p-4 space-y-3">
+              <p className="text-sm font-semibold text-foreground">Direct Contact</p>
+              <div className="space-y-2 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <Mail size={15} className="text-accent shrink-0" />
+                  <a href={`mailto:${companyContact.email}`} className="hover:text-foreground transition-colors">
+                    {companyContact.email}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone size={15} className="text-accent shrink-0" />
+                  <a href={companyContact.phoneHref} className="hover:text-foreground transition-colors">
+                    {companyContact.phoneDisplay}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Printer size={15} className="text-accent shrink-0" />
+                  <a href={companyContact.faxHref} className="hover:text-foreground transition-colors">
+                    {companyContact.faxDisplay} (Fax)
+                  </a>
+                </div>
+                <div className="flex items-start gap-2">
+                  <MapPin size={15} className="text-accent shrink-0 mt-0.5" />
+                  <span>
+                    {companyContact.addressLine1}
+                    <br />
+                    {companyContact.addressLine2}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 

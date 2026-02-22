@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
+import ScrollReveal from "@/components/ScrollReveal";
 import { useToast } from "@/hooks/use-toast";
 import {
   LogOut, Search, Download, ChevronLeft, ChevronRight,
@@ -260,7 +261,8 @@ const AdminDashboard = () => {
 
           {/* Overview Tab */}
           {tab === "overview" && (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <ScrollReveal>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { label: "Total Requests", value: stats.total, color: "text-primary" },
                 { label: "Last 7 Days", value: stats.last7Days, color: "text-accent" },
@@ -278,12 +280,14 @@ const AdminDashboard = () => {
                   <p className="text-foreground font-medium mt-1">{new Date(stats.lastSubmission).toLocaleString()}</p>
                 </div>
               )}
-            </div>
+              </div>
+            </ScrollReveal>
           )}
 
           {/* Requests Tab */}
           {tab === "requests" && (
-            <div className="space-y-4">
+            <ScrollReveal>
+              <div className="space-y-4">
               {/* Filters */}
               <div className="flex flex-wrap gap-3 items-end">
                 <div className="flex-1 min-w-[200px]">
@@ -385,12 +389,14 @@ const AdminDashboard = () => {
                   </div>
                 </div>
               )}
-            </div>
+              </div>
+            </ScrollReveal>
           )}
 
           {/* Settings Tab */}
           {tab === "settings" && (
-            <div className="max-w-lg space-y-6">
+            <ScrollReveal>
+              <div className="max-w-lg space-y-6">
               <div className="bg-card rounded-xl p-6 border border-border space-y-5">
                 <h2 className="font-display font-bold text-lg text-foreground">Notification Settings</h2>
                 <div className="space-y-1.5">
@@ -422,13 +428,15 @@ const AdminDashboard = () => {
                   <Save size={14} className="mr-1" /> Save Settings
                 </Button>
               </div>
-            </div>
+              </div>
+            </ScrollReveal>
           )}
 
           {/* Request Detail Modal */}
           {selectedRequest && (
             <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4" onClick={() => setSelectedRequest(null)}>
-              <div className="bg-card rounded-xl border border-border w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 space-y-5" onClick={(e) => e.stopPropagation()}>
+              <ScrollReveal className="w-full max-w-2xl">
+                <div className="bg-card rounded-xl border border-border w-full max-h-[90vh] overflow-y-auto p-6 space-y-5" onClick={(e) => e.stopPropagation()}>
                 <div className="flex items-center justify-between">
                   <h2 className="font-display font-bold text-lg text-foreground">Request Details</h2>
                   <button onClick={() => setSelectedRequest(null)} className="text-muted-foreground hover:text-foreground">
@@ -494,7 +502,8 @@ const AdminDashboard = () => {
                     </Button>
                   </div>
                 </div>
-              </div>
+                </div>
+              </ScrollReveal>
             </div>
           )}
         </div>
